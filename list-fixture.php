@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect('localhost', 'web', 'mysql', 'lowxynova')
+$db = mysqli_connect('localhost', 'web', 'mysql', 'novalighting')
 or die('Error connecting to MySQL server.');
 ?>
 <html class="no-js" lang="de">
