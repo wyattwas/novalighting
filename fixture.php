@@ -1,7 +1,7 @@
 <?php
 $fixture_id = $_GET['id'];
 
-$db = mysqli_connect('localhost', 'root', 'mysql', 'test_html')
+$db = mysqli_connect('localhost', 'web', 'mysql', 'test_html')
 or die('Error connecting to MySQL server.');
 ?>
 <html class="no-js" lang="de">
