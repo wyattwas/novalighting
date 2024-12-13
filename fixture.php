@@ -45,7 +45,7 @@ or die('Error connecting to MySQL server.');
 <div class="main">
     <div class="container">
         <?php
-        $query = "SELECT images.url FROM test_html.images JOIN test_html.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
+        $query = "SELECT images.url FROM novalighting.images JOIN novalighting.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
 
         mysqli_query($db, $query) or die('Error querying database.');
 
@@ -60,7 +60,7 @@ or die('Error connecting to MySQL server.');
 
         <div class="row">
             <?php
-            $query = "SELECT images.url FROM test_html.images JOIN test_html.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
+            $query = "SELECT images.url FROM novalighting.images JOIN novalighting.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
 
             mysqli_query($db, $query) or die('Error querying database.');
 
