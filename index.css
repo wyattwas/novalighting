@@ -1,0 +1,18 @@
+.header {
+  background-image: url('/img/mhx-25-blue.JPG');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  margin: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 50px;
+}
