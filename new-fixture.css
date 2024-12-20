@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input, textarea, *.images {
+        width: 500px;
+        margin: 10px 0 10px 0;
+    }
+}
+
+.images {
+    border-radius: 4px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+
+    * {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 0 5px;
+        cursor: pointer;
+        background-clip: content-box;
+        background-origin: content-box;
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    }
+}
