@@ -48,6 +48,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <table>
     <thead>
     <tr>
+        <th class="tg-ul38">Preview</th>
         <th class="tg-ul38">ID</th>
         <th class="tg-ul38">URL</th>
         <th class="tg-ul38">Delete</th>
@@ -56,6 +57,9 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <tbody>
     <?php foreach ($images as $image): ?>
         <tr>
+            <td class="tg-0lax">
+                <img src="<?= $image['url'] ?>" alt="Preview unavailable" style="max-width: 100px; max-height: 100px; height: 100px; object-fit: contain;"/>
+            </td>
             <td class="tg-0lax">
                 <a href="?tab=manage-image&id=<?= $image['idimage'] ?>">
                     <?= $image['idimage'] ?>
