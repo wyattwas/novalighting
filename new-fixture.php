@@ -9,11 +9,11 @@ if (isset($_POST["submit"])) {
     $id_images = $_POST["selected_images"];
 
     $query_fixture = "INSERT INTO fixtures (idfixture, name, info) values ('$id_fixture', '$name_fixture', '$description_fixture')";
-    mysqli_query(mysql, $query_fixture);
+    $stmt = PDO->query($query_fixture);
 
     foreach ($id_images as $id_image) {
         $query_image_to_fixture = "INSERT INTO fixture_images (idfixture, idimage) values ('$id_fixture', '$id_image')";
-        mysqli_query(mysql, $query_image_to_fixture);
+        $stmt = PDO->query($query_image_to_fixture);
     }
 }
 
