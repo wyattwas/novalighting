@@ -1,1 +1,1 @@
-Redirect verwalten.php verwalten.php?tab=manage
+RewriteRule verwalten.php$ /verwalten.php?tab=manage [L,R,QSA]
