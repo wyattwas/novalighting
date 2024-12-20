@@ -16,7 +16,7 @@ if (isset($_POST["submit"])) {
     }
 
     $query_image = "INSERT INTO images (idimage, url) values ('" . basename($_FILES["fileToUpload"]["name"]) . "', '$target_file')";
-    mysqli_query(mysql, $query_image);
+    $stmt = PDO->query($query_image);
 }
 
 // Check if file already exists
@@ -56,7 +56,7 @@ if ($uploadOk == 0) {
 
 </head>
 <body>
-<form action="upload-image.php" method="post" enctype="multipart/form-data">
+<form action="?upload-image" method="post" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Fertig" name="submit">
 </form>
