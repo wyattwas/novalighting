@@ -1,8 +1,14 @@
 <?php
+require('database.php');
 $fixture_id = $_GET['id'];
 
-$db = mysqli_connect('localhost', 'web', 'mysql', 'novalighting')
-or die('Error connecting to MySQL server.');
+$query_images = "SELECT images.url FROM novalighting.images JOIN novalighting.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
+$stmt = PDO->query($query_images);
+$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$query_fixture = "SELECT * FROM fixtures WHERE idfixture = '$fixture_id'";
+$stmt = PDO->query($query_fixture);
+$fixture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <html class="no-js" lang="de">
 <head>
@@ -11,6 +17,7 @@ or die('Error connecting to MySQL server.');
     <title>NovaLighting - Fixture Info</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fixture.css">
+    <link rel="stylesheet" href="css/img-slide.css">
     <meta name="description" content="">
 
     <meta property="og:title" content="">
@@ -38,49 +45,26 @@ or die('Error connecting to MySQL server.');
 
 <div class="main">
     <div class="container">
-        <?php
-        $query = "SELECT images.url FROM novalighting.images JOIN novalighting.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
-
-        mysqli_query($db, $query) or die('Error querying database.');
-
-        $result = mysqli_query($db, $query);
-
-        while ($row = mysqli_fetch_array($result)) {
-            echo '<div class="mySlides"><img src="' . $row['url'] . '" style="width:100%"></div>';
+        <?php foreach ($images as $image) {
+            echo '<div class="mySlides"><img src="' . $image['url'] . '" style="width:100%"></div>';
         }
         ?>
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
         <div class="row">
             <?php
-            $query = "SELECT images.url FROM novalighting.images JOIN novalighting.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
-
-            mysqli_query($db, $query) or die('Error querying database.');
-
-            $result = mysqli_query($db, $query);
             $i = 1;
 
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<div class="column"><img class="demo cursor" src="' . $row['url'] . '" style="width:100%" onclick="currentSlide('.$i.')"></div>';
+            foreach ($images as $image) {
+                echo '<div class="column"><img class="demo cursor" src="' . $image['url'] . '" style="width:100%" onclick="currentSlide(' . $i . ')"></div>';
                 $i++;
             }
             ?>
         </div>
     </div>
-
-    <?php
-    $query = "SELECT * FROM fixtures WHERE idfixture = '$fixture_id'";
-
-    mysqli_query($db, $query) or die('Error querying database.');
-
-    $result = mysqli_query($db, $query);
-
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='title'><div class='name'>".$row['name']."</div><div class='id'>ID: ".$row['idfixture']."</div></div><div class='description'>".$row['info']."</div>";
+    <?php foreach ($fixture as $current_fixture) {
+        echo '<div class="title"><div class="name">' . $current_fixture['name'] . '</div><div class="id">ID: ' . $current_fixture['idfixture'] . '</div></div><div class="description">' . $current_fixture['info'] . '</div>';
     }
-
-    mysqli_close($db);
     ?>
 </div>
 
@@ -109,17 +93,21 @@ or die('Error connecting to MySQL server.');
         let slides = document.getElementsByClassName("mySlides");
         let dots = document.getElementsByClassName("demo");
         let captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        captionText.innerHTML = dots[slideIndex-1].alt;
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
     }
 </script>
 
