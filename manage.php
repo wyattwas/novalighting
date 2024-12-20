@@ -16,48 +16,48 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <table>
-<thead>
-<tr>
-    <th class="tg-ul38">ID</th>
-    <th class="tg-ul38">Name</th>
-</tr>
-</thead>
-<tbody>
-<?php foreach ($fixtures as $fixture): ?>
+    <thead>
     <tr>
-        <td class="tg-0lax">
-            <a href="manage-fixture.php?id=<?= $fixture['idfixture'] ?>">
-                <?= $fixture['idfixture'] ?>
-            </a>
-        </td>
-        <td class="tg-0lax">
-            <?= $fixture['name'] ?>
-        </td>
+        <th class="tg-ul38">ID</th>
+        <th class="tg-ul38">Name</th>
     </tr>
-<?php endforeach; ?>
-</tbody
+    </thead>
+    <tbody>
+    <?php foreach ($fixtures as $fixture): ?>
+        <tr>
+            <td class="tg-0lax">
+                <a href="manage-fixture.php?id=<?= $fixture['idfixture'] ?>">
+                    <?= $fixture['idfixture'] ?>
+                </a>
+            </td>
+            <td class="tg-0lax">
+                <?= $fixture['name'] ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody
 </table>
 <table>
-<thead>
-<tr>
-    <th class="tg-ul38">ID</th>
-    <th class="tg-ul38">URL</th>
-</tr>
-</thead>
-<tbody>
-<?php foreach ($images as $image): ?>
+    <thead>
     <tr>
-        <td class="tg-0lax">
-            <a href="manage-image.php?id=<?= $image['idimage'] ?>">
-                <?= $image['idimage'] ?>
-            </a>
-        </td>
-        <td class="tg-0lax">
-            <?= $image['url'] ?>
-        </td>
+        <th class="tg-ul38">ID</th>
+        <th class="tg-ul38">URL</th>
     </tr>
-<?php endforeach; ?>
-</tbody
+    </thead>
+    <tbody>
+    <?php foreach ($images as $image): ?>
+        <tr>
+            <td class="tg-0lax">
+                <a href="manage-image.php?id=<?= $image['idimage'] ?>">
+                    <?= $image['idimage'] ?>
+                </a>
+            </td>
+            <td class="tg-0lax">
+                <?= $image['url'] ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody
 </table>
 </body>
 </html>
