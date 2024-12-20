@@ -1,4 +1,6 @@
 <?php
+$tab = $_GET['tab'];
+$iframe_src = $tab . ".php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,12 +18,18 @@
             color: white;
             width: 100px;
 
-            * {
-                height: 50px;
-                width: 100%;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
 
-                :hover {
-                    background: #025ec1;
+                li {
+                    height: 50px;
+                    width: 100%;
+
+                    :hover {
+                        background: #025ec1;
+                    }
                 }
             }
         }
@@ -29,28 +37,23 @@
         main {
             width: 100%;
         }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
     </style>
-    <script>
-        function loadIframe(src) {
-            const iframe = document.getElementById('main-iframe');
-            iframe.src = src;
-        }
-    </script>
 </head>
 <body>
 <nav>
-    <div onclick="loadIframe('manage.php')">Manage</div>
-    <div onclick="loadIframe('new-fixture.php')")>New Fixture</div>
-    <div onclick="loadIframe('upload-image.php')">New Image</div>
+    <ul>
+        <li><a href="?tab=manage">Manage</a></li>
+        <li><a href="?tab=new-fixture">New Fixture</a></li>
+        <li><a href="?tab=upload-image">New Image</a></li>
+    </ul>
 </nav>
 <main>
-    <iframe id="main-iframe" onload="this.width=screen.width;this.height=screen.height;"></iframe>
+    <div id="content">
+        <?php
+        include $tab . ".php";
+        ?>
+    </div>
+
 </main>
 </body>
 </html>

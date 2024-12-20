@@ -26,7 +26,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($fixtures as $fixture): ?>
         <tr>
             <td class="tg-0lax">
-                <a href="manage-fixture.php?id=<?= $fixture['idfixture'] ?>">
+                <a href="?tab=manage-fixture&id=<?= $fixture['idfixture'] ?>">
                     <?= $fixture['idfixture'] ?>
                 </a>
             </td>
@@ -48,7 +48,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($images as $image): ?>
         <tr>
             <td class="tg-0lax">
-                <a href="manage-image.php?id=<?= $image['idimage'] ?>">
+                <a href="?tab=manage-image&id=<?= $image['idimage'] ?>">
                     <?= $image['idimage'] ?>
                 </a>
             </td>
