@@ -17,6 +17,7 @@ $all_images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/new-fixture.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -51,15 +52,18 @@ Images
     <?php endforeach; ?>
     </tbody>
 </table>
-<div class="images">
-    <?php foreach ($all_images as $image): ?>
-        <div id="div-<?= $image['idimage'] ?>" onclick="toggleSelection(event, '<?= $image['idimage'] ?>')">
-            <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
-                   value="<?= $image['idimage'] ?>">
-            <img src="<?php echo $image['url'] ?>" width="200" height="200">
-            <label><?php echo $image['idimage']; ?></label>
-        </div>
-    <?php endforeach ?>
-</div>
+<form action="new-fixture.php" method="post" enctype="multipart/form-data">
+    <div class="images">
+        <?php foreach ($images as $image): ?>
+            <div id="div-<?= $image['idimage'] ?>" onclick="toggleSelection(event, '<?= $image['idimage'] ?>')">
+                <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
+                       value="<?= $image['idimage'] ?>">
+                <img src="<?php echo $image['url'] ?>" width="200" height="200">
+                <label><?php echo $image['idimage']; ?></label>
+            </div>
+        <?php endforeach ?>
+    </div>
+    <input type="submit" value="Hinzufügen" name="submit">
+</form>
 </body>
 </html>
