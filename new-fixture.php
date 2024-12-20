@@ -24,7 +24,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/new-fixture.css">
+    <link rel="stylesheet" type="text/css" href="css/select-images.css">
     <script>
         function toggleSelection(event, imageId) {
             event.preventDefault();
