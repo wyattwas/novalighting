@@ -15,11 +15,18 @@ $stmt = PDO->query($query_images);
 $all_images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (isset($_POST["submit"])) {
-    $id_images = $_POST["selected_images"];
+    $name_fixture = $_POST["name"];
+    $description_fixture = $_POST["description"];
 
-    foreach ($id_images as $id_image) {
-        $query_image_to_fixture = "INSERT INTO fixture_images (idfixture, idimage) values ('$id_fixture', '$id_image')";
-        $stmt = PDO->query($query_image_to_fixture);
+    $query_fixture = "UPDATE fixtures SET name = '$name_fixture', info = '$description_fixture' WHERE idfixture = '$id_fixture'";
+    $stmt = PDO->query($query_fixture);
+
+    if (array_key_exists("selected_images", $_POST)) {
+        $id_images = $_POST["selected_images"];
+        foreach ($id_images as $id_image) {
+            $query_image_to_fixture = "INSERT INTO fixture_images (idfixture, idimage) values ('$id_fixture', '$id_image')";
+            $stmt = PDO->query($query_image_to_fixture);
+        }
     }
 }
 ?>
@@ -42,57 +49,64 @@ if (isset($_POST["submit"])) {
             }
         }
     </script>
+    <script>
+        console.log($('form'));
+    </script>
 </head>
 <body>
-<?php foreach ($fixture as $current_fixture) {
-echo '<h1>Manage Fixture <a href="fixture.php?id='.$id_fixture.'" target="_blank">'.$current_fixture['name'].'</a></h1>';
-} ?>
-
-<table>
-    <thead>
-    <tr>
-        <th colspan="3">Images</th>
-    </tr>
-    <tr>
-        <th class="tg-ul38">ID</th>
-        <th class="tg-ul38">URL</th>
-        <th class="tg-ul38">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($images as $image): ?>
-        <tr>
-            <td class="tg-0lax">
-                <a href="?tab=manage-image&id=<?= $image['idimage'] ?>">
-                    <?= $image['idimage'] ?>
-                </a>
-            </td>
-            <td class="tg-0lax">
-                <?= $image['url'] ?>
-            </td>
-            <td
-                    class="tg-0lax"
-                    onclick="$.ajax({url:'sql-php/delete-fixture-image.php?imageid=<?= $image['idimage'] ?>&fixtureid=<?= $id_fixture ?>'}); $(this).closest('tr').remove()"
-                    style="cursor: pointer"
-            >
-                <img src="img/remove.png" alt="Delete" style="height: 25px">
-            </td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
-<form action="?tab=manage-fixture&id=<?= $id_fixture ?>" method="post" enctype="multipart/form-data">
-    <div class="images">
-        <?php foreach ($all_images as $image): ?>
-            <div id="div-<?= $image['idimage'] ?>" onclick="toggleSelection(event, '<?= $image['idimage'] ?>')">
-                <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
-                       value="<?= $image['idimage'] ?>">
-                <img src="<?php echo $image['url'] ?>" width="200" height="200">
-                <label><?php echo $image['idimage']; ?></label>
-            </div>
-        <?php endforeach ?>
-    </div>
-    <input type="submit" value="Hinzufügen" name="submit">
-</form>
+<main>
+    <?php foreach ($fixture as $current_fixture) {
+        echo '<h1>Manage Fixture <a href="fixture.php?id=' . $id_fixture . '" target="_blank">' . $current_fixture['name'] . '</a></h1>';
+    } ?>
+    <form action="?tab=manage-fixture&id=<?= $id_fixture ?>" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" id="name" maxlength="50" value="<?= $current_fixture['name'] ?>">
+        <textarea name="description" id="description" cols="30" rows="10"
+                  maxlength="500"><?= $current_fixture['info'] ?></textarea>
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3">Images</th>
+            </tr>
+            <tr>
+                <th class="tg-ul38">ID</th>
+                <th class="tg-ul38">URL</th>
+                <th class="tg-ul38">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($images as $image): ?>
+                <tr>
+                    <td class="tg-0lax">
+                        <a href="?tab=manage-image&id=<?= $image['idimage'] ?>">
+                            <?= $image['idimage'] ?>
+                        </a>
+                    </td>
+                    <td class="tg-0lax">
+                        <?= $image['url'] ?>
+                    </td>
+                    <td
+                            class="tg-0lax"
+                            onclick="$.ajax({url:'sql-php/delete-fixture-image.php?imageid=<?= $image['idimage'] ?>&fixtureid=<?= $id_fixture ?>'}); $(this).closest('tr').remove()"
+                            style="cursor: pointer"
+                    >
+                        <img src="img/remove.png" alt="Delete" style="height: 25px">
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="images">
+            <?php foreach ($all_images as $image): ?>
+                <div id="div-<?= $image['idimage'] ?>" onclick="toggleSelection(event, '<?= $image['idimage'] ?>')">
+                    <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
+                           value="<?= $image['idimage'] ?>">
+                    <img src="<?php echo $image['url'] ?>" width="200" height="200">
+                    <label><?php echo $image['idimage']; ?></label>
+                </div>
+            <?php endforeach ?>
+        </div>
+        <input type="submit" value="Fertig" name="submit">
+    </form>
+</main>
 </body>
 </html>
