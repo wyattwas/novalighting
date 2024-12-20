@@ -25,7 +25,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 5000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -52,7 +52,7 @@ if ($uploadOk == 0) {
 
 </head>
 <body>
-<form action="upload-image.php" method="post" enctype="multipart/form-data">
+<form action="?upload-image" method="post" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Fertig" name="submit">
 </form>
