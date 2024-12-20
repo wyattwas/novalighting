@@ -1,1 +1,1 @@
-RewriteRule verwalten.php /verwalten.php?tab=manage [L,R,QSA]
+RewriteRule verwalten.php /verwalten.php?tab=manage
