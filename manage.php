@@ -2,11 +2,11 @@
 require('database.php');
 
 $query_fixtures = "SELECT * FROM fixtures";
-$stmt = pdo->query($query_fixtures);
+$stmt = PDO->query($query_fixtures);
 $fixtures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $query_images = "SELECT * FROM images";
-$stmt = pdo->query($query_images);
+$stmt = PDO->query($query_images);
 $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>

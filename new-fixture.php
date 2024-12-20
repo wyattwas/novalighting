@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
 }
 
 $sql = "SELECT idimage, url FROM images";
-$stmt = pdo->query($sql);
+$stmt = PDO->query($sql);
 $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>

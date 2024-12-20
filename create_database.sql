@@ -1,5 +1,5 @@
-create database lowxynova;
-use lowxynova;
+create database novalighting;
+use novalighting;
 create table fixture_images
 (
     idfixture varchar(50),
