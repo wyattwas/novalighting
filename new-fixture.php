@@ -41,7 +41,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </script>
 </head>
 <body>
-
+<h1>New Fixture</h1>
 <form action="new-fixture.php" method="post" enctype="multipart/form-data">
     <input type="text" name="name" id="name" maxlength="50" placeholder="Name" required>
     <textarea name="description" id="description" cols="30" rows="10" maxlength="500"
