@@ -9,6 +9,10 @@ $fixtures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $query_images = "SELECT * FROM images i JOIN fixture_images fi ON i.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id';";
 $stmt = PDO->query($query_images);
 $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$query_images = "SELECT * FROM images;";
+$stmt = PDO->query($query_images);
+$all_images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +33,7 @@ Images
     <?php foreach ($images as $image): ?>
         <tr>
             <td class="tg-0lax">
-                <a href="manage-image.php?id=<?= $image['idimage'] ?>">
+                <a href="?tab=manage-image&id=<?= $image['idimage'] ?>">
                     <?= $image['idimage'] ?>
                 </a>
             </td>
@@ -47,5 +51,15 @@ Images
     <?php endforeach; ?>
     </tbody>
 </table>
+<div class="images">
+    <?php foreach ($all_images as $image): ?>
+        <div id="div-<?= $image['idimage'] ?>" onclick="toggleSelection(event, '<?= $image['idimage'] ?>')">
+            <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
+                   value="<?= $image['idimage'] ?>">
+            <img src="<?php echo $image['url'] ?>" width="200" height="200">
+            <label><?php echo $image['idimage']; ?></label>
+        </div>
+    <?php endforeach ?>
+</div>
 </body>
 </html>
