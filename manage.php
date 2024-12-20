@@ -12,7 +12,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <table>
@@ -20,6 +20,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <tr>
         <th class="tg-ul38">ID</th>
         <th class="tg-ul38">Name</th>
+        <th class="tg-ul38">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +34,13 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td class="tg-0lax">
                 <?= $fixture['name'] ?>
             </td>
+            <td
+                    class="tg-0lax"
+                    onclick="$.ajax({url:'sql-php/delete-fixture.php?id=<?= $fixture['idfixture'] ?>'}); $(this).closest('tr').remove()"
+                    style="cursor: pointer"
+            >
+                <img src="img/delete.png" alt="Delete" style="height: 25px">
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody
@@ -42,6 +50,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <tr>
         <th class="tg-ul38">ID</th>
         <th class="tg-ul38">URL</th>
+        <th class="tg-ul38">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -54,6 +63,13 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </td>
             <td class="tg-0lax">
                 <?= $image['url'] ?>
+            </td>
+            <td
+                    class="tg-0lax"
+                    onclick="$.ajax({url:'sql-php/delete-image.php?id=<?= $image['idimage'] ?>'}); $(this).closest('tr').remove()"
+                    style="cursor: pointer"
+            >
+                <img src="img/delete.png" alt="Delete" style="height: 25px">
             </td>
         </tr>
     <?php endforeach; ?>
