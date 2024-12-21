@@ -18,6 +18,10 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 
+    if ($_POST['name'] != NULL) {
+        $target_file = $target_dir . basename($_POST['name']) . "." . $imageFileType;
+    }
+
     $query_image = "INSERT INTO images (idimage, url) values ('".$_POST['id']."', '$target_file')";
     $stmt = PDO->query($query_image);
 }
@@ -42,7 +46,7 @@ if ($uploadOk == 0) {
     $info = "Sorry, your file was not uploaded.";
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        $info = "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        $info = "The file ". htmlspecialchars( basename( $target_file)). " has been uploaded.";
     } else {
         $info = "Sorry, there was an error uploading your file.";
     }
@@ -57,6 +61,7 @@ if ($uploadOk == 0) {
 <h1>New Image</h1>
 <form method="post" enctype="multipart/form-data">
     <input type="text" name="id" id="id" maxlength="20" placeholder="ID" required>
+    <input type="text" name="name" id="name" maxlength="50" placeholder="New File Name">
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Fertig" name="submit">
 </form>
