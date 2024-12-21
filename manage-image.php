@@ -41,14 +41,12 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
 <?php foreach ($image as $current_image) {
-    echo '<h1>Manage Fixture <a href="fixture.php?id=' . $id_image . '" target="_blank">' . $current_image['id'] . '</a></h1>';
+    echo '<h1>Manage Image ' . $current_image['idimage'] . '</h1>';
 } ?>
 <form action="?tab=manage-image&id=<?= $id_image ?>" method="post" enctype="multipart/form-data">
     Rename Image<br>
     Full URL: <?= $current_image['url'] ?>
     <input type="text" name="name" id="name" maxlength="50" value="<?= pathinfo($current_image['url'])['filename'] ?>">
-    <?php echo pathinfo($current_image['url'])['dirname'] ?>
-    <?php echo pathinfo($current_image['url'])['extension'] ?>
     <input type="submit" value="Fertig" name="submit">
 </form>
 </body>
