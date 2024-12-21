@@ -10,9 +10,11 @@ $iframe_src = $tab . ".php";
             display: flex;
             flex-direction: row;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         nav {
+            position: fixed;
             height: 100vh;
             background: #007bff;
             color: white;
@@ -22,13 +24,22 @@ $iframe_src = $tab . ".php";
                 list-style: none;
                 margin: 0;
                 padding: 0;
+                width: 100%;
+
+                li:hover {
+                    background: #025ec1;
+                }
 
                 li {
                     height: 50px;
                     width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
-                    :hover {
-                        background: #025ec1;
+                    a, a:visited {
+                        text-decoration: none;
+                        color: white;
                     }
                 }
             }
