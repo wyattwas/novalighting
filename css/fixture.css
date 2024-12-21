@@ -34,12 +34,10 @@ table {
     top: 50%;
 }
 
-.title {
-    .name {
-        font-size: 100px;
-        max-font-size: 100px;
-        font-weight: bold;
-    }
+.title .name {
+    font-size: 75px;
+    max-font-size: 75px;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 850px) {
