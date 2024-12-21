@@ -2,11 +2,14 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 10px solid white;
 
     td {
         max-width: 500px;
     }
+}
+
+table, th, td {
+    border: 5px solid white;
 }
 
 .container {
