@@ -7,7 +7,7 @@ table {
         max-width: 500px;
         border: 5px solid white;
         padding: 10px;
-        wrap-option: wrap;
+        word-wrap: break-word;
     }
 }
 
