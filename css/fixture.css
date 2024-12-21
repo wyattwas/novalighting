@@ -6,7 +6,7 @@ table {
     td {
         max-width: 500px;
         border: 5px solid white;
-        flex-wrap: wrap;
+        padding: 5px;
     }
 }
 
@@ -40,13 +40,6 @@ table {
         max-font-size: 100px;
         font-weight: bold;
     }
-}
-
-.description {
-    margin-top: 50px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
 }
 
 @media screen and (max-width: 850px) {
