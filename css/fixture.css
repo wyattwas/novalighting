@@ -2,6 +2,10 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    td {
+        max-width: 500px;
+    }
 }
 
 .container {
