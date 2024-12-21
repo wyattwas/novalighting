@@ -4,6 +4,10 @@ main {
     align-items: center;
 }
 
+table {
+    width: 500px;
+}
+
 form {
     display: flex;
     flex-direction: column;
