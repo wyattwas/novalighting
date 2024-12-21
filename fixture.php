@@ -30,7 +30,7 @@ $fixture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <nav class="nav" id="nav">
-    <a href="index.html">Logo</a>
+    <a href="index.php">Logo</a>
     <a href="list-fixture.php">Fixture List</a>
     <a href="past-projects.html">Vergangene Projekte</a>
     <a href="https://www.youtube.com/watch?v=5P1qRpmoFp8&list=PL4nNPjb8kva9e8-wQPH9VLNp214bt5O-_" target="_blank">YouTube</a>
@@ -77,18 +77,15 @@ $fixture = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <tr>
             <td colspan="2">
                 <?php foreach ($fixture as $current_fixture) {
-                    echo '<div class="description">' . $current_fixture['info'] . '</div>';
+                    echo $current_fixture['info'];
                 }
                 ?>
             </td>
         </tr>
         </tbody>
     </table>
-<footer>
-    <small>©
-        <script>document.write(new Date().getFullYear().toString())</script>
-        NovaLighting. All Rights Reserved.</small>
-</footer>
+</div>
+
 
 <script>
     let slideIndex = 1;
