@@ -35,17 +35,10 @@ table {
 }
 
 .title {
-    margin-left: 50px;
-
     .name {
         font-size: 100px;
         max-font-size: 100px;
         font-weight: bold;
-    }
-
-    .id {
-        position: relative;
-        top: -20px;
     }
 }
 
