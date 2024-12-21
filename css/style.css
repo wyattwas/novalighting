@@ -357,3 +357,9 @@ textarea {
 .main {
   padding-top: 50px;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}

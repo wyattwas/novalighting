@@ -1,4 +1,73 @@
-.header {
+.header {table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.mySlides img {
+    max-width: 500px;
+    max-height: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.prev, .next {
+    top: 50%;
+}
+
+.title {
+    margin-left: 50px;
+
+    .name {
+        font-size: 100px;
+        max-font-size: 100px;
+        font-weight: bold;
+    }
+
+    .id {
+        position: relative;
+        top: -20px;
+    }
+}
+
+.description {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 850px) {
+    main {
+        flex-direction: column;
+    }
+
+    .title {
+        position: absolute;
+        top: 50px;
+    }
+
+    .container {
+        top: 250px;
+    }
+
+    .description {
+        position: absolute;
+        top: 1000px;
+    }
+}
   background-image: url('/img/mhx-25-blue.JPG');
   background-repeat: no-repeat;
   background-position: center;

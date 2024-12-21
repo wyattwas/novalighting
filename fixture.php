@@ -2,7 +2,7 @@
 require('database.php');
 $fixture_id = $_GET['id'];
 
-$query_images = "SELECT images.url FROM novalighting.images JOIN novalighting.fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
+$query_images = "SELECT images.url FROM images JOIN fixture_images fi on images.idimage = fi.idimage WHERE fi.idfixture = '$fixture_id'";
 $stmt = PDO->query($query_images);
 $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -44,30 +44,46 @@ $fixture = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="back"><a href="list-fixture.php">< Zurück</a></div>
 
 <div class="main">
-    <div class="container">
-        <?php foreach ($images as $image) {
-            echo '<div class="mySlides"><img src="' . $image['url'] . '" style="width:100%"></div>';
-        }
-        ?>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <div class="row">
-            <?php
-            $i = 1;
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                <div class="container">
+                    <?php foreach ($images as $image) {
+                        echo '<div class="mySlides"><img src="' . $image['url'] . '" style="width:100%"></div>';
+                    }
+                    ?>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <div class="row">
+                        <?php
+                        $i = 1;
 
-            foreach ($images as $image) {
-                echo '<div class="column"><img class="demo cursor" src="' . $image['url'] . '" style="width:100%" onclick="currentSlide(' . $i . ')"></div>';
-                $i++;
-            }
-            ?>
-        </div>
-    </div>
-    <?php foreach ($fixture as $current_fixture) {
-        echo '<div class="title"><div class="name">' . $current_fixture['name'] . '</div><div class="id">ID: ' . $current_fixture['idfixture'] . '</div></div><div class="description">' . $current_fixture['info'] . '</div>';
-    }
-    ?>
-</div>
-
+                        foreach ($images as $image) {
+                            echo '<div class="column"><img class="demo cursor" src="' . $image['url'] . '" style="width:100%" onclick="currentSlide(' . $i . ')"></div>';
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <?php foreach ($fixture as $current_fixture) {
+                    echo '<div class="title"><div class="name">' . $current_fixture['name'] . '</div><div class="id">ID: ' . $current_fixture['idfixture'] . '</div></div>';
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <?php foreach ($fixture as $current_fixture) {
+                    echo '<div class="description">' . $current_fixture['info'] . '</div>';
+                }
+                ?>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 <footer>
     <small>©
         <script>document.write(new Date().getFullYear().toString())</script>
