@@ -1,4 +1,4 @@
 RewriteEngine on
 
-RewriteRule ^/management/verwalten\.php$ /management/verwalten.php?tab=manage [L]
+RewriteRule ^management/verwalten\.php$ /management/verwalten.php?tab=manage [L]
 RewriteRule ^management/$ /management/verwalten.php [L]
