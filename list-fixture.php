@@ -21,7 +21,7 @@ or die('Error connecting to MySQL server.');
 </head>
 <body>
 <nav class="nav" id="nav">
-    <a href="index.html">Logo</a>
+    <a href="index.php">Logo</a>
     <a href="list-fixture.php">Fixture List</a>
     <a href="past-projects.html">Vergangene Projekte</a>
     <a href="https://www.youtube.com/watch?v=5P1qRpmoFp8&list=PL4nNPjb8kva9e8-wQPH9VLNp214bt5O-_" target="_blank">YouTube</a>
@@ -31,9 +31,7 @@ or die('Error connecting to MySQL server.');
         <div class="menu-toggle__bar3"></div>
     </a>
 </nav>
-
 <div class="main">
-
     <div class="tg-wrap">
         <table id="tg-W5uSl" class="tg">
             <thead>
@@ -59,12 +57,7 @@ or die('Error connecting to MySQL server.');
         </table>
     </div>
 </div>
-
-<footer>
-    <small>©
-        <script>document.write(new Date().getFullYear().toString())</script>
-        NovaLighting. All Rights Reserved.</small>
-</footer>
+<?= include "footer.php";?>
 
 <script>
     function togglemenu() {

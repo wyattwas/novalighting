@@ -100,7 +100,7 @@ if (isset($_POST["submit"])) {
                 <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
                        value="<?= $image['idimage'] ?>">
                 <img src="<?php echo $image['url'] ?>" width="200" height="200">
-                <label><?php echo $image['idimage']; ?></label>
+                <label><?php echo $image['idimage'] ?></label>
             </div>
         <?php endforeach ?>
     </div>
