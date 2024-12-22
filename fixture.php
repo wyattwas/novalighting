@@ -75,7 +75,7 @@ $fixture = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 </div>
-
+<?php include "components/footer.php"; ?>
 
 <script>
     let slideIndex = 1;
