@@ -1,8 +1,8 @@
 RewriteEngine on
 
 # RewriteRule verwalten.php /verwalten.php?tab=manage [L,R]
-Redirect /management/ /management/verwalten.php
-Redirect /sql-php/ index.php
-Redirect /css/ index.php
-Redirect /components/ index.php
-Redirect /img/ index.php
+Redirect 301 /management/ /management/verwalten.php
+Redirect 301 /sql-php/ index.php
+Redirect 301 /css/ index.php
+Redirect 301 /components/ index.php
+Redirect 301 /img/ index.php
