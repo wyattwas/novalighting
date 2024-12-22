@@ -54,6 +54,7 @@ $tab = $_GET['tab'];
     <ul>
         <li><a href="?tab=manage">Manage</a></li>
         <li><a href="?tab=new-fixture">New Fixture</a></li>
+        <li><a href="?tab=new-post">New Post</a></li>
         <li><a href="?tab=upload-image">New Image</a></li>
     </ul>
 </nav>

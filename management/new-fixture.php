@@ -1,7 +1,6 @@
 <?php
 require('../database.php');
 
-// Check if image file is a actual image or fake image
 if (isset($_POST["submit"])) {
     $name_fixture = $_POST["name"];
     $description_fixture = $_POST["description"];
