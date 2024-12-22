@@ -52,6 +52,7 @@ $post = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </table>
 </div>
 
+<?php include "components/footer.php"; ?>
 
 <script>
     let slideIndex = 1;
