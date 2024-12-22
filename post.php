@@ -35,7 +35,9 @@ $post = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <tr>
             <td>
                 <?php foreach ($post as $current_post): ?>
-                    <?= $current_post['name'] ?>
+                    <h1>
+                        <?= $current_post['name'] ?>
+                    </h1>
                 <?php endforeach; ?>
             </td>
         </tr>

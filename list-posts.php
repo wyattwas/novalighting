@@ -36,7 +36,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
             <?php foreach ($posts as $post): ?>
                 <tr>
-                    <td class="tg-0lax"><a href="fixture.php?id=<?= $post['idpost'] ?>"><?= $post['name']?></a></td>
+                    <td class="tg-0lax"><a href="post.php?id=<?= $post['idpost'] ?>"><?= $post['name']?></a></td>
                     <td class="tg-0lax"><?= $post['idpost'] ?></td>
                 </tr>
             <?php endforeach; ?>
