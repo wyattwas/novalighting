@@ -1,6 +1,12 @@
 <?php
 require('../database.php');
 
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
 if (isset($_POST["submit"])) {
     $name_post = $_POST["name"];
     $body_post = $_POST["body"];
@@ -15,7 +21,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" type="text/css" href="../css/select-images.css">
 </head>
 <body>
-<h1>New Fixture</h1>
+<h1>New Post</h1>
 <form action="?tab=new-post" method="post" enctype="multipart/form-data">
     <input type="text" name="name" id="name" maxlength="200" placeholder="Name" required>
     <textarea name="body" id="body" cols="30" rows="10" maxlength="1000"

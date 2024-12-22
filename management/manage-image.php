@@ -2,6 +2,12 @@
 require('../database.php');
 $id_image = $_GET['id'];
 
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $query_image = "SELECT * FROM images WHERE idimage = '$id_image'";
 $stmt = PDO->query($query_image);
 $image = $stmt->fetchAll(PDO::FETCH_ASSOC);

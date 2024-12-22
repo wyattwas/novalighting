@@ -1,5 +1,12 @@
 <?php
 $tab = $_GET['tab'];
+
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,12 +64,14 @@ $tab = $_GET['tab'];
         <li><a href="?tab=new-post">New Post</a></li>
         <li><a href="?tab=upload-image">New Image</a></li>
     </ul>
+    <ul style="position: absolute; bottom: 0">
+        <li><a href="logout.php">Logout</a></li>
+    </ul>
 </nav>
 <main>
     <div id="content">
         <?php include $tab . ".php"; ?>
     </div>
-
 </main>
 </body>
 </html>

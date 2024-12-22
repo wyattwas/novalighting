@@ -1,6 +1,12 @@
 <?php
 require('../database.php');
 
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $info = "";
 
 $target_dir = "uploads/";

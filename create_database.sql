@@ -20,8 +20,17 @@ create table fixtures
 );
 create table posts
 (
-    idpost int NOT NULL auto_increment,
+    idpost int not null auto_increment,
     name varchar(200),
     body varchar(1000),
     primary key (idpost)
+);
+create table users
+(
+    userid int not null auto_increment,
+    username  varchar(45) not null,
+    email  varchar(45) not null,
+    password  varchar(45) not null,
+    primary key (userid),
+    unique key id_UNIQUE  (userid)
 );

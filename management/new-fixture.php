@@ -1,6 +1,12 @@
 <?php
 require('../database.php');
 
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
 if (isset($_POST["submit"])) {
     $name_fixture = $_POST["name"];
     $description_fixture = $_POST["description"];
