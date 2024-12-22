@@ -1,5 +1,5 @@
 <?php
-require('database.php');
+require('../database.php');
 $id_image = $_GET['id'];
 
 $query_image = "SELECT * FROM images WHERE idimage = '$id_image'";
@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/select-images.css">
+    <link rel="stylesheet" type="text/css" href="../css/select-images.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function toggleSelection(event, imageId) {

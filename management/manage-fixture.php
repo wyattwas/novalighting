@@ -1,5 +1,5 @@
 <?php
-require('database.php');
+require('../database.php');
 $id_fixture = $_GET['id'];
 
 $query_fixture = "SELECT * FROM fixtures WHERE idfixture = '$id_fixture'";
@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/select-images.css">
+    <link rel="stylesheet" type="text/css" href="../css/select-images.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function toggleSelection(event, imageId) {
@@ -81,7 +81,7 @@ if (isset($_POST["submit"])) {
                     </a>
                 </td>
                 <td class="tg-0lax">
-                    <?= $image['url'] ?>
+                    <?= '../' . $image['url'] ?>
                 </td>
                 <td
                         class="tg-0lax"
@@ -99,8 +99,8 @@ if (isset($_POST["submit"])) {
             <div id="div-<?= $image['idimage'] ?>" onclick="toggleSelection(event, '<?= $image['idimage'] ?>')">
                 <input type="checkbox" name="selected_images[]" id="checkbox-<?= $image['idimage'] ?>"
                        value="<?= $image['idimage'] ?>">
-                <img src="<?php echo $image['url'] ?>" width="200" height="200">
-                <label><?php echo $image['idimage'] ?></label>
+                <img src="<?= '../' . $image['url'] ?>" width="200" height="200">
+                <label><?= $image['idimage'] ?></label>
             </div>
         <?php endforeach ?>
     </div>
