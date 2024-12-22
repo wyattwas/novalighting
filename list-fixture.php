@@ -1,13 +1,16 @@
 <?php
-$db = mysqli_connect('localhost', 'web', 'mysql', 'novalighting')
-or die('Error connecting to MySQL server.');
+require('database.php');
+
+$query = "SELECT * FROM fixtures";
+$stmt = PDO->query($query);
+$fixtures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <html class="no-js" lang="de">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NovaLighting - Fixtures</title>
-    <<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fixtures.css">
     <meta name="description" content="">
 
@@ -20,17 +23,7 @@ or die('Error connecting to MySQL server.');
     <meta name="theme-color" content="#8820ffff">
 </head>
 <body>
-<nav class="nav" id="nav">
-    <a href="index.php">Logo</a>
-    <a href="list-fixture.php">Fixture List</a>
-    <a href="past-projects.html">Vergangene Projekte</a>
-    <a href="https://www.youtube.com/watch?v=5P1qRpmoFp8&list=PL4nNPjb8kva9e8-wQPH9VLNp214bt5O-_" target="_blank">YouTube</a>
-    <a href="javascript:void(0);" id="menu-toggle" onclick="togglemenu()">
-        <div class="menu-toggle__bar1"></div>
-        <div class="menu-toggle__bar2"></div>
-        <div class="menu-toggle__bar3"></div>
-    </a>
-</nav>
+<?php include "components/nav.php"; ?>
 <div class="main">
     <div class="tg-wrap">
         <table id="tg-W5uSl" class="tg">
@@ -41,23 +34,17 @@ or die('Error connecting to MySQL server.');
             </tr>
             </thead>
             <tbody>
-            <?php
-            $query = "SELECT * FROM fixtures";
-            mysqli_query($db, $query) or die('Error querying database.');
-
-            $result = mysqli_query($db, $query);
-
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<tr><td class="tg-0lax"><a href="fixture.php?id=' . $row['idfixture'] . '">' . $row['name'] . '</a></td><td class="tg-0lax">' . $row['idfixture'] . '</td></tr>';
-            }
-
-            mysqli_close($db);
-            ?>
+            <?php foreach ($fixtures as $fixture): ?>
+                <tr>
+                    <td class="tg-0lax"><a href="fixture.php?id=<?= $fixture['idfixture'] ?>"><?= $fixture['name']?></a></td>
+                    <td class="tg-0lax"><?= $fixture['idfixture'] ?></td>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 </div>
-<?= include "footer.php";?>
+<?php include "components/footer.php"; ?>
 
 <script>
     function togglemenu() {
