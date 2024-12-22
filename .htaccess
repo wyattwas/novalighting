@@ -1,7 +1,7 @@
 RewriteEngine on
 
 RewriteRule ^management/$ /management/verwalten.php [L]
-RewriteRule ^css(/.*)?$ /index.php [L]
-RewriteRule ^components(/.*)?$ /index.php [L]
-RewriteRule ^img(/.*)?$ /index.php [L]
-RewriteRule ^sql-php(/.*)?$ /index.php [L]
+RewriteRule ^css(/.*)?$ index.php [L]
+RewriteRule ^components(/.*)?$ index.php [L]
+RewriteRule ^img(/.*)?$ index.php [L]
+RewriteRule ^sql-php(/.*)?$ index.php [L]
