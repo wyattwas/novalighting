@@ -42,9 +42,7 @@
 <div style="width: 100%; position: fixed; z-index: 1000; top: 50px; left: 0; background: #ff0000;"><p>Diese Seite befindet sich noch in der Entwicklung.</p><div onClick="parentNode.remove()" style="cursor: pointer">Close [X]</div></div>
 -->
 
-<footer>
-  <small>© <script>document.write(new Date().getFullYear())</script> NovaLighting. All Rights Reserved.</small>
-</footer>
+<?php include "footer.php"; ?>
 
 <script>
   function togglemenu() {

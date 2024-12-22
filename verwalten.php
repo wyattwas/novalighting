@@ -60,9 +60,7 @@ $iframe_src = $tab . ".php";
 </nav>
 <main>
     <div id="content">
-        <?php
-        include $tab . ".php";
-        ?>
+        <?php include $tab . ".php"; ?>
     </div>
 
 </main>
