@@ -44,11 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href=
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="shortcut icon" href=
-    "https://cdn-icons-png.flaticon.com/512/295/295128.png">
     <script src=
             "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/login.css">
     <title>Login Page</title>
 </head>
 
