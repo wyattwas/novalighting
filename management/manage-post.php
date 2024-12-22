@@ -22,10 +22,11 @@ if (isset($_POST["submit"])) {
 <body>
 <?php foreach ($post as $current_post): ?>
     <h1>Manage Fixture <a href="../post.php?id=<?= $id_post ?>" target="_blank"><?= $current_post['name'] ?></a></h1>
-<?php endforeach; ?>
 <form action="?tab=manage-post&id=<?= $id_post ?>" method="post" enctype="multipart/form-data">
     <input type="text" name="name" id="name" maxlength="200" value="<?= $current_post['name'] ?>">
     <textarea name="body" id="body" cols="30" rows="10" maxlength="1000"><?= $current_post['body'] ?></textarea>
     <input type="submit" value="Fertig" name="submit">
 </form>
+<?php endforeach; ?>
 </body>
+</html>

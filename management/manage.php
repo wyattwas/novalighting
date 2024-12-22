@@ -8,6 +8,10 @@ $fixtures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $query_images = "SELECT * FROM images";
 $stmt = PDO->query($query_images);
 $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$query_posts = "SELECT * FROM posts";
+$stmt = PDO->query($query_posts);
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +43,7 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </td>
                 <td
                         class="tg-0lax"
-                        onclick="$.ajax({url:'sql-php/delete-fixture.php?id=<?= $fixture['idfixture'] ?>'}); $(this).closest('tr').remove()"
+                        onclick="$.ajax({url:'../sql-php/delete-fixture.php?id=<?= $fixture['idfixture'] ?>'}); $(this).closest('tr').remove()"
                         style="cursor: pointer"
                 >
                     <img src="../img/delete.png" alt="Delete" style="height: 25px">
@@ -77,7 +81,40 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </td>
                 <td
                         class="tg-0lax"
-                        onclick="$.ajax({url:'sql-php/delete-image.php?id=<?= $image['idimage'] ?>'}); $(this).closest('tr').remove()"
+                        onclick="$.ajax({url:'../sql-php/delete-image.php?id=<?= $image['idimage'] ?>'}); $(this).closest('tr').remove()"
+                        style="cursor: pointer"
+                >
+                    <img src="../img/delete.png" alt="Delete" style="height: 25px">
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody
+    </table>
+</div>
+<div>
+    <h1>Posts</h1>
+    <table>
+        <thead>
+        <tr>
+            <th class="tg-ul38">ID</th>
+            <th class="tg-ul38">Titel</th>
+            <th class="tg-ul38">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($posts as $post): ?>
+            <tr>
+                <td class="tg-0lax">
+                    <a href="?tab=manage-post&id=<?= $post['idpost'] ?>">
+                        <?= $post['idpost'] ?>
+                    </a>
+                </td>
+                <td class="tg-0lax">
+                    <?= $post['name'] ?>
+                </td>
+                <td
+                        class="tg-0lax"
+                        onclick="$.ajax({url:'../sql-php/delete-post.php?id=<?= $post['idpost'] ?>'}); $(this).closest('tr').remove()"
                         style="cursor: pointer"
                 >
                     <img src="../img/delete.png" alt="Delete" style="height: 25px">
