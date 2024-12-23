@@ -1,3 +1,10 @@
+<?php
+require('database.php');
+
+$query = "SELECT * FROM pages WHERE name = 'Start'";
+$stmt = PDO->query($query);
+$page = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="de">
 <head>
@@ -19,14 +26,9 @@
 <body>
 <?php include "components/nav.php"; ?>
 
-<div class="header">
-  <h1>Willkommen bei NovaLighting</h1>
-</div>
-
-<div class="main">
-  Auf dieser Seite findet ihr alle Infos zu meinem Lichttechnikequipment,<br>
-  tolle Lightshows, die ich erstellt habe und vieles mehr.
-</div>
+<?php foreach ($page as $current_page): ?>
+    <?= $current_page['body'] ?>
+<?php endforeach; ?>
 
 <!--
 <div style="width: 100%; position: fixed; z-index: 1000; top: 50px; left: 0; background: #ff0000;"><p>Diese Seite befindet sich noch in der Entwicklung.</p><div onClick="parentNode.remove()" style="cursor: pointer">Close [X]</div></div>

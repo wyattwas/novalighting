@@ -42,3 +42,4 @@ create table pages
     primary key (idpage)
 );
 insert into pages values (0, 'Kontakt', '');
+insert into pages values (0, 'Start', '');
