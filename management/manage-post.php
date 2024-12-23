@@ -16,8 +16,8 @@ if (isset($_POST["submit"])) {
     $name_post = $_POST["name"];
     $body_post = $_POST["body"];
 
-    $query_fixture = "UPDATE posts SET name = '$name_post', body = '$body_post' WHERE idpost = '$id_post'";
-    $stmt = PDO->query($query_fixture);
+    $query_update = "UPDATE posts SET name = '$name_post', body = '$body_post' WHERE idpost = '$id_post'";
+    $stmt = PDO->query($query_update);
 }
 ?>
 <!DOCTYPE html>

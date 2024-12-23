@@ -2,11 +2,7 @@
 require('../database.php');
 $id_fixture = $_GET['id'];
 
-session_start();
-if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
-    exit();
-}
+include "valid-session.php";
 
 $query_fixture = "SELECT * FROM fixtures WHERE idfixture = '$id_fixture'";
 $stmt = PDO->query($query_fixture);

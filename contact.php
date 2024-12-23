@@ -1,3 +1,10 @@
+<?php
+require('database.php');
+
+$query = "SELECT * FROM pages WHERE name = 'Kontakt'";
+$stmt = PDO->query($query);
+$page = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +26,10 @@
 <body>
 <?php include "components/nav.php"; ?>
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative; top: 100px;">
-    <h1>Kontakt</h1>
-    Zur Zeit ist der beste Weg uns zu kontaktieren über unsere WhatsApp Business Nummer.<br>
-    Nummer:
+    <?php foreach ($page as $current_page): ?>
+    <h1><?= $current_page['name'] ?></h1>
+    <?= $current_page['body'] ?>
+    <?php endforeach; ?>
 </div>
 <?php include "components/footer.php"; ?>
 </body>

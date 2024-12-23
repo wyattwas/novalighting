@@ -18,6 +18,10 @@ $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $query_posts = "SELECT * FROM posts";
 $stmt = PDO->query($query_posts);
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$query_pages = "SELECT * FROM pages";
+$stmt = PDO->query($query_pages);
+$pages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -124,6 +128,31 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         style="cursor: pointer"
                 >
                     <img src="../img/delete.png" alt="Delete" style="height: 25px">
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody
+    </table>
+</div>
+<div>
+    <h1>Pages</h1>
+    <table>
+        <thead>
+        <tr>
+            <th class="tg-ul38">ID</th>
+            <th class="tg-ul38">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($pages as $page): ?>
+            <tr>
+                <td class="tg-0lax">
+                    <a href="?tab=manage-page&id=<?= $page['idpage'] ?>">
+                        <?= $page['idpage'] ?>
+                    </a>
+                </td>
+                <td class="tg-0lax">
+                    <?= $page['name'] ?>
                 </td>
             </tr>
         <?php endforeach; ?>
