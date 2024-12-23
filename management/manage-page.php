@@ -11,7 +11,7 @@ $page = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if (isset($_POST["submit"])) {
     $body_page = $_POST["body"];
 
-    $query_update = "UPDATE ppages SET body = '$body_page' WHERE idpage = '$id_page'";
+    $query_update = "UPDATE pages SET body = '$body_page' WHERE idpage = '$id_page'";
     $stmt = PDO->query($query_update);
 }
 ?>
