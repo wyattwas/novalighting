@@ -1,5 +1,5 @@
 <?php
-const DB_HOST = 'localhost';
+const DB_HOST = '172.0.0.1';
 const DB_USER = 'web';
 const DB_PASSWORD = 'mysql';
 const DB_NAME = 'novalighting';
