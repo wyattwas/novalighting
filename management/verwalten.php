@@ -12,7 +12,7 @@ if (!isset($_SESSION['email'])) {
 <head>
     <style>
         :root {
-            --nav-width: 500px;
+            --nav-width: 300px;
         }
 
         body {
