@@ -20,7 +20,6 @@ if (!isset($_SESSION['email'])) {
         }
 
         nav {
-            position: fixed;
             height: 100vh;
             background: #303349;
             color: white;
