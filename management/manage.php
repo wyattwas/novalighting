@@ -33,7 +33,7 @@ $pages = $stmt->fetchAll(PDO::FETCH_ASSOC);
             td {
                 border-left: 1px solid black;
 
-                &:nth-child(even) {
+                &:nth-last-child() {
                     border-right: none;
                 }
             }
