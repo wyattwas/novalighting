@@ -31,7 +31,7 @@ $pages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <style>
         table {
             td {
-                border-left: 1px solid black;
+                border-right: 1px solid black;
 
                 &:nth-last-child() {
                     border-right: none;
