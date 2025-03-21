@@ -7,7 +7,6 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 ?>
-?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -23,7 +22,7 @@ if (!isset($_SESSION['email'])) {
             height: 100vh;
             background: #303349;
             color: white;
-            width: 200px;
+            width: 500px;
 
             ul {
                 list-style: none;
