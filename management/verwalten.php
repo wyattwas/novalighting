@@ -9,7 +9,7 @@ if (!isset($_SESSION['email'])) {
 ?>
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
     <style>
         body {
@@ -22,9 +22,9 @@ if (!isset($_SESSION['email'])) {
         nav {
             position: fixed;
             height: 100vh;
-            background: #007bff;
+            background: #303349;
             color: white;
-            width: 100px;
+            width: 200px;
 
             ul {
                 list-style: none;
@@ -33,7 +33,7 @@ if (!isset($_SESSION['email'])) {
                 width: 100%;
 
                 li:hover {
-                    background: #025ec1;
+                    background: #3f4057;
                 }
 
                 li {
@@ -47,6 +47,10 @@ if (!isset($_SESSION['email'])) {
                         text-decoration: none;
                         color: white;
                     }
+
+                    .active {
+                        background-color: #635cc7;
+                    }
                 }
             }
         }
@@ -55,14 +59,15 @@ if (!isset($_SESSION['email'])) {
             width: 100%;
         }
     </style>
+    <title>Novalighting - Management</title>
 </head>
 <body>
 <nav>
     <ul>
-        <li><a href="?tab=manage">Manage</a></li>
-        <li><a href="?tab=new-fixture">New Fixture</a></li>
-        <li><a href="?tab=new-post">New Post</a></li>
-        <li><a href="?tab=upload-image">New Image</a></li>
+        <li class="<?php if ($tab == "manage") echo "active" ?>"><a href="?tab=manage">Manage</a></li>
+        <li class="<?php if ($tab == "new-fixture") echo "active" ?>"><a href="?tab=new-fixture">New Fixture</a></li>
+        <li class="<?php if ($tab == "new-post") echo "active" ?>"><a href="?tab=new-post">New Post</a></li>
+        <li class="<?php if ($tab == "upload-image") echo "active" ?>"><a href="?tab=upload-image">New Image</a></li>
     </ul>
     <ul style="position: absolute; bottom: 0">
         <li><a href="logout.php">Logout</a></li>
