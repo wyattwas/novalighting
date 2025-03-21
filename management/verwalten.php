@@ -40,8 +40,8 @@ if (!isset($_SESSION['email'])) {
                     padding: 5px;
                     width: calc();
                     display: flex;
-                    justify-content: center;
-                    align-items: start;
+                    justify-content: start;
+                    align-items: center;
                     border-radius: 8px;
 
                     &:hover {
