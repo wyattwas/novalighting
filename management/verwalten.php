@@ -48,7 +48,7 @@ if (!isset($_SESSION['email'])) {
                         color: white;
                     }
 
-                    .active {
+                    & .active {
                         background-color: #635cc7;
                     }
                 }
