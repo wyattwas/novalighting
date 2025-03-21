@@ -55,6 +55,10 @@ if (!isset($_SESSION['email'])) {
                         flex-direction: row;
                         align-items: center;
                         justify-content: center;
+
+                        svg {
+                            margin-left: 5px;
+                        }
                     }
 
                     &.active {
