@@ -47,8 +47,8 @@ if (!isset($_SESSION['email'])) {
                     & a {
                         display: flex;
                         flex-direction: row;
-                        align-items: center;
-                        justify-content: start;
+                        align-items: start;
+                        justify-content: center;
                     }
 
                     &:hover {
