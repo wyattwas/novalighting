@@ -32,10 +32,6 @@ if (!isset($_SESSION['email'])) {
                 padding: 0;
                 width: 100%;
 
-                li:hover {
-                    background: #3f4057;
-                }
-
                 li {
                     height: 50px;
                     width: 100%;
@@ -43,12 +39,16 @@ if (!isset($_SESSION['email'])) {
                     justify-content: center;
                     align-items: center;
 
+                    &:hover {
+                        background: #3f4057;
+                    }
+
                     a, a:visited {
                         text-decoration: none;
                         color: white;
                     }
 
-                    & .active {
+                    &.active {
                         background-color: #635cc7;
                     }
                 }
