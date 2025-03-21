@@ -40,10 +40,16 @@ if (!isset($_SESSION['email'])) {
                     padding: 5px;
                     width: calc();
                     display: flex;
-                    flex-direction: row;
                     justify-content: start;
                     align-items: center;
                     border-radius: 8px;
+
+                    & a {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: start;
+                    }
 
                     &:hover {
                         background: #3f4057;
