@@ -44,13 +44,6 @@ if (!isset($_SESSION['email'])) {
                     align-items: center;
                     border-radius: 8px;
 
-                    & a {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: start;
-                        justify-content: center;
-                    }
-
                     &:hover {
                         background: #3f4057;
                     }
@@ -58,6 +51,10 @@ if (!isset($_SESSION['email'])) {
                     a, a:visited {
                         text-decoration: none;
                         color: white;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: start;
+                        justify-content: center;
                     }
 
                     &.active {
