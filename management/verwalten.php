@@ -37,11 +37,11 @@ if (!isset($_SESSION['email'])) {
                 li {
                     height: 40px;
                     margin: 5px;
+                    padding: 5px;
                     width: calc();
                     display: flex;
-                    justify-content: start;
-                    text-align: start;
-                    align-items: center;
+                    justify-content: center;
+                    align-items: start;
                     border-radius: 8px;
 
                     &:hover {
