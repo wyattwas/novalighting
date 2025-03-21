@@ -87,7 +87,7 @@ if (isset($_POST["submit"])) {
                 </td>
                 <td
                         class="tg-0lax"
-                        onclick="$.ajax({url:'sql-php/delete-fixture-image.php?imageid=<?= $image['idimage'] ?>&fixtureid=<?= $id_fixture ?>'}); $(this).closest('tr').remove()"
+                        onclick="$.ajax({url:'../sql-php/delete-fixture-image.php?imageid=<?= $image['idimage'] ?>&fixtureid=<?= $id_fixture ?>'}); $(this).closest('tr').remove()"
                         style="cursor: pointer"
                 >
                     <svg
