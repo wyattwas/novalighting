@@ -28,6 +28,17 @@ $pages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <link rel="stylesheet" type="text/css" href="../css/select-images.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        table {
+            td {
+                border-left: 1px solid black;
+
+                &:nth-child(even) {
+                    border-left: none;
+                }
+            }
+        }
+    </style>
 </head>
 <body>
 <div>
