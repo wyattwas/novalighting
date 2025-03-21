@@ -35,11 +35,11 @@ if (!isset($_SESSION['email'])) {
                 li {
                     height: 40px;
                     margin: 5px;
-                    width: 100%;
+                    width: 200px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border-radius: 1.25rem;
+                    border-radius: 8px;
 
                     &:hover {
                         background: #3f4057;
