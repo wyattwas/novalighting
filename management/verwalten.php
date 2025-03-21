@@ -11,6 +11,10 @@ if (!isset($_SESSION['email'])) {
 <html lang="de">
 <head>
     <style>
+        :root {
+            --nav-width: 500px;
+        }
+
         body {
             display: flex;
             flex-direction: row;
@@ -22,18 +26,18 @@ if (!isset($_SESSION['email'])) {
             height: 100vh;
             background: #303349;
             color: white;
-            width: 500px;
+            width: var(--nav-width);
 
             ul {
                 list-style: none;
                 margin: 0;
                 padding: 0;
-                width: 100%;
+                width: calc(var(--nav-width) - 10px);
 
                 li {
                     height: 40px;
                     margin: 5px;
-                    width: 190px;
+                    width: calc();
                     display: flex;
                     justify-content: center;
                     align-items: center;
