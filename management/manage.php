@@ -34,7 +34,7 @@ $pages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 border-left: 1px solid black;
 
                 &:nth-child(even) {
-                    border-left: none;
+                    border-right: none;
                 }
             }
         }
