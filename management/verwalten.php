@@ -57,7 +57,7 @@ if (!isset($_SESSION['email'])) {
                         justify-content: center;
 
                         svg {
-                            margin-left: 5px;
+                            margin-right: 5px;
                         }
                     }
 
