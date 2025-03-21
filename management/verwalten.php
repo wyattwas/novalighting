@@ -40,7 +40,7 @@ if (!isset($_SESSION['email'])) {
                     padding: 5px;
                     width: calc();
                     display: flex;
-                    justify-content: center;
+                    justify-content: left;
                     align-items: center;
                     border-radius: 8px;
 
@@ -53,7 +53,7 @@ if (!isset($_SESSION['email'])) {
                         color: white;
                         display: flex;
                         flex-direction: row;
-                        align-items: start;
+                        align-items: center;
                         justify-content: center;
                     }
 
