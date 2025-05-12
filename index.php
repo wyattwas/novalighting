@@ -13,6 +13,7 @@ $page = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <title>NovaLighting - Home</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="icon" type="image/png" href="/assets/NovaLightingLogoV1.png">
   <meta name="description" content="">
 
   <meta property="og:title" content="">
